@@ -9,7 +9,7 @@ import { DB_URL } from 'src/config';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      driver: 'postgres',
+      type: 'postgres',
       url: DB_URL,
       entities: [Chat],
       synchronize: true,
