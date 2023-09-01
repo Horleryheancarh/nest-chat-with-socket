@@ -44,7 +44,7 @@ function sendMessage(message) {
   socket.emit('sendMessage', message);
 }
 //Listen to recMessage event to get the messages sent by users
-socket.on('recMessage', (message) => {
+socket.on('receiveMessage', (message) => {
   messages.push(message);
   loadDate(messages);
 });
