@@ -4,15 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from 'src/app.service';
 import { AppGateway } from 'src/app/app.gateway';
 import { Chat } from 'src/chat.entity';
+import { DB_URL } from 'src/config';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      username: 'postgres',
-      password: 'postgres',
-      database: 'chat',
+      url: DB_URL,
       entities: [Chat],
       synchronize: true,
     }),

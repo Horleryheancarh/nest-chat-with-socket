@@ -1,4 +1,6 @@
-const socket = io('http://localhost:3000');
+import { RENDER_EXTERNAL_HOSTNAME } from '../src/config';
+
+const socket = io(RENDER_EXTERNAL_HOSTNAME);
 const msgBox = document.getElementById('exampleFormControlTextarea1');
 const msgCont = document.getElementById('data-container');
 const email = document.getElementById('email');
@@ -6,7 +8,7 @@ const email = document.getElementById('email');
 //get old messages from the server
 const messages = [];
 function getMessages() {
-  fetch('http://localhost:3002/api/chat')
+  fetch(`${RENDER_EXTERNAL_HOSTNAME}/api/chat`)
     .then((response) => response.json())
     .then((data) => {
       loadDate(data);
